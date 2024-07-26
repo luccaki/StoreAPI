@@ -19,7 +19,7 @@
 
 # Functions Project
 - Azure Functions for CRUD only in Product table
-- 
+
 #### Runing:
 Unfortunatelly Azure Functions is not available in the Free Tier, just ran locally.
 
@@ -33,6 +33,8 @@ Can be found at: https://documenter.getpostman.com/view/14465268/2sA3kYjfRD
  - AppServices: Created two web app, one for staging and one for production
  - SQL databases: Created two with distinct SQL servers, staging and production
  - API Management: Could be implemented as gateway, but its not available in the Free Tier
+
+Staging: https://quartile-app-dev.azurewebsites.net/
 
 # Github Actions
 
