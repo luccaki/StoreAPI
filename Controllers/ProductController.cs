@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoreAPI.Dtos;
+using StoreAPI.Models;
 using StoreAPI.Services;
 
 namespace StoreAPI.Controllers
@@ -19,7 +20,7 @@ namespace StoreAPI.Controllers
         public async Task<IActionResult> CreateProduct(long companyId, long storeId, CreateUpdateProductDto productDto)
         {
             var product = await _productService.CreateAsync(companyId, storeId, productDto);
-            return CreatedAtAction(nameof(GetProductById), new { companyId, storeId, id = product.Id }, product);
+            return Created(nameof(CreateProduct), product);
         }
 
         [HttpGet("{id}")]

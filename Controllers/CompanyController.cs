@@ -19,7 +19,7 @@ namespace StoreAPI.Controllers
         public async Task<IActionResult> CreateCompany(CreateUpdateCompanyDto companyDto)
         {
             var company = await _companyService.CreateAsync(companyDto);
-            return CreatedAtAction(nameof(GetCompanyById), new { id = company.Id }, company);
+            return Created(nameof(CreateCompany), company);
         }
 
         [HttpGet("{id}")]
