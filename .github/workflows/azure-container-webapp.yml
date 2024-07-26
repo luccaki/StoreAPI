@@ -61,11 +61,19 @@ jobs:
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_STAGING }}
           images: 'ghcr.io/${{ env.REPO }}:${{ github.sha }}'
 
+# Separate deploy-prod job for manual trigger
+name: Deploy to Production
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: none
+  packages: write
+
+jobs:
   deploy-prod:
-    permissions:
-      contents: none
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp-prod.outputs.webapp-url }}
